@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "name": "Role Model Framework",
+        "description": "Modular AI role architecture for reliable contained behavior.",
+        "tech": ["TypeScript", "Python", "Flask", "LangChain"],
+        "link": "https://github.com/aarel/role-model"
+    },
+    {
+        "id": 2,
+        "name": "Portfolio Website",
+        "description": "Emotional-symbolic AI runtime for personalized interactions.",
+        "tech": ["Node.js", "Next.js", "OpenAI API"],
+        "link": "https://github.com/aarel/persona-runtime"
+    }
+]
