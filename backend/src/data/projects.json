@@ -12,5 +12,12 @@
         "description": "Emotional-symbolic AI runtime for personalized interactions.",
         "tech": ["Node.js", "Next.js", "OpenAI API"],
         "link": "https://github.com/aarel/persona-runtime"
+    },
+    {
+        "id": 3,
+        "name": "Red v. Blue",
+        "description": "Educational cybersecurity red team/ blue team action.",
+        "tech": ["Python"],
+        "link": "https://github.com/aarel/red-v-blue"
     }
 ]
