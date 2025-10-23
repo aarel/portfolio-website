@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React = require("react");
+import React from "react";
 
 interface Post {
   id: string;

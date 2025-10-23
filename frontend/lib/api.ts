@@ -1,15 +1,31 @@
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
+
 export async function getProjects() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/projects`);
-    if (!res.ok) {
-        throw new Error('Failed to fetch projects');
+    try {
+        const res = await fetch(`${API_URL}/api/projects`, {
+            cache: 'no-store' // Prevents Next.js caching issues
+        });
+        if (!res.ok) {
+            throw new Error('Failed to fetch projects');
+        }
+        return res.json();
+    } catch (error) {
+        console.error('Error fetching projects:', error);
+        return []; // Return empty array instead of crashing
     }
-    return res.json();
 }
 
 export async function getPosts() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`);
-    if (!res.ok) {
-        throw new Error('Failed to fetch posts');
+    try {
+        const res = await fetch(`${API_URL}/api/posts`, {
+            cache: 'no-store'
+        });
+        if (!res.ok) {
+            throw new Error('Failed to fetch posts');
+        }
+        return res.json();
+    } catch (error) {
+        console.error('Error fetching posts:', error);
+        return [];
     }
-    return res.json();
 }

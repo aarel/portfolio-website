@@ -1,4 +1,6 @@
-import React = require("react");
+export const dynamic = "force-dynamic";
+
+import React from "react";
 import ProjectCard from "../../components/ProjectCard";
 import { getProjects } from "../../lib/api";
 

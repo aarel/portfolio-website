@@ -2,22 +2,28 @@
     {
         "id": 1,
         "name": "Role Model Framework",
+        "slug": "role-model-framework",
         "description": "Modular AI role architecture for reliable contained behavior.",
-        "tech": ["TypeScript", "Python", "Flask", "LangChain"],
-        "link": "https://github.com/aarel/role-model"
+        "tech": ["Python", "Flask", "MySQL", "OpenAI API"],
+        "link": "https://github.com/aarel/role-model",
+        "active": true
     },
     {
         "id": 2,
         "name": "Portfolio Website",
+        "slug": "portfolio-website",
         "description": "Emotional-symbolic AI runtime for personalized interactions.",
         "tech": ["Node.js", "Next.js", "OpenAI API"],
-        "link": "https://github.com/aarel/persona-runtime"
+        "link": "https://github.com/aarel/portfolio-website",
+        "active": true
     },
     {
         "id": 3,
         "name": "Red v. Blue",
+        "slug": "red-v-blue",
         "description": "Educational cybersecurity red team/ blue team action.",
-        "tech": ["Python"],
-        "link": "https://github.com/aarel/red-v-blue"
+        "tech": ["Python", "Open AI"],
+        "link": "https://github.com/aarel/red-v-blue",
+        "active": true
     }
 ]

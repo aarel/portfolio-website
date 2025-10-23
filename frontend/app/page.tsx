@@ -2,8 +2,6 @@ import ProjectCard from '../components/ProjectCard';
 import { getProjects } from '../lib/api';
 import React = require('react');
 
-export const dynamic = "force-dynamic";
-
 export default async function Home() {
     const projects = await getProjects();
     return (
