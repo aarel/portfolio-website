@@ -29,7 +29,7 @@ The goal: a modular, easily updated portfolio that can run locally, sync via Git
 ---
 
 ## Folder Structure
-
+```
 portfolio-website/
 ├─ backend/
 │ ├─ src/
@@ -58,7 +58,7 @@ portfolio-website/
 ├─ tailwind.config.ts
 ├─ postcss.config.js
 └─ package.json
-
+```
 
 ---
 
