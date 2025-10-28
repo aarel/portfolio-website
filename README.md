@@ -29,7 +29,7 @@ The goal: a modular, easily updated portfolio that can run locally, sync via Git
 ---
 
 ## Folder Structure
-
+```
 portfolio-website/
 ├─ backend/
 │ ├─ src/
@@ -58,7 +58,7 @@ portfolio-website/
 ├─ tailwind.config.ts
 ├─ postcss.config.js
 └─ package.json
-
+```
 
 ---
 
@@ -66,7 +66,7 @@ portfolio-website/
 
 ### 1. Clone the repository
 
-    git clone https://github.com/aarel/portfolio-website.git
+    git clone https://github.com/<your_username>/portfolio-website.git
     cd portfolio-website
 
 ---
