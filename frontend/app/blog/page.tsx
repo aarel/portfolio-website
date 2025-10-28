@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import React from "react";
 import PostCard from "../../components/PostCard";
 import { getPosts } from "../../lib/api";

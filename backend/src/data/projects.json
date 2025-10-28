@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name": "Role Model Framework",
+        "title": "Role Model Framework",
         "slug": "role-model-framework",
         "description": "Modular AI role architecture for reliable contained behavior.",
         "tech": ["Python", "Flask", "MySQL", "OpenAI API"],
@@ -10,20 +10,29 @@
     },
     {
         "id": 2,
-        "name": "Portfolio Website",
+        "title": "Portfolio Website",
         "slug": "portfolio-website",
-        "description": "Emotional-symbolic AI runtime for personalized interactions.",
+        "description": "Website to showcase my projects and blog posts.",
         "tech": ["Node.js", "Next.js", "OpenAI API"],
         "link": "https://github.com/aarel/portfolio-website",
         "active": true
     },
     {
         "id": 3,
-        "name": "Red v. Blue",
+        "title": "Red v. Blue",
         "slug": "red-v-blue",
         "description": "Educational cybersecurity red team/ blue team action.",
         "tech": ["Python", "Open AI"],
         "link": "https://github.com/aarel/red-v-blue",
+        "active": true
+    },
+    {
+        "id": 5,
+        "title": "Prompt Mode",
+        "slug": "prompt-mode",
+        "description": "Prompt engineering using the LLM.",
+        "tech": ["JavaScript", "Node.js", "Express"],
+        "link": "https://github.com/aarel/prompt-mode",
         "active": true
     }
 ]

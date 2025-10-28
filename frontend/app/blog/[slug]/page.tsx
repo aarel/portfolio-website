@@ -1,4 +1,4 @@
-import React = require("react");
+import React from "react";
 import { getPosts } from "../../../lib/api";
 
 export default async function BlogPost({ params }: { params: { slug: string } }) {
