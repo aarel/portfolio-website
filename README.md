@@ -66,7 +66,7 @@ portfolio-website/
 
 ### 1. Clone the repository
 
-    git clone https://github.com/aarel/portfolio-website.git
+    git clone https://github.com/<your_username>/portfolio-website.git
     cd portfolio-website
 
 ---
