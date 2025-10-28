@@ -27,15 +27,6 @@
         "active": true
     },
     {
-        "id": 4,
-        "title": "Test",
-        "slug": "test-test",
-        "description": "Test project card.",
-        "tech": ["Python", "Open AI"],
-        "link": "https://github.com/aarel/test",
-        "active": true
-    },
-    {
         "id": 5,
         "title": "Prompt Mode",
         "slug": "prompt-mode",
