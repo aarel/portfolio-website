@@ -1,7 +1,8 @@
-import "../styles/globals.css";
+// frontend/app/layout.tsx
+import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import React = require("react");
+import React from "react";
 
 export const metadata = {
   title: "Portfolio | Adam Arellano",
