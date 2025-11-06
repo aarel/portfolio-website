@@ -1,5 +1,5 @@
 export interface Project {
-    id: string;
+    id: string | number;
     title: string;
     slug: string;
     description: string;
@@ -13,4 +13,5 @@ export interface Post {
     slug: string;
     excerpt: string;
     date: string;
+    content: string;
 }

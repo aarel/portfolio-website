@@ -25,14 +25,5 @@
         "tech": ["Python", "Open AI"],
         "link": "https://github.com/aarel/red-v-blue",
         "active": true
-    },
-    {
-        "id": 5,
-        "title": "Prompt Mode",
-        "slug": "prompt-mode",
-        "description": "Prompt engineering using the LLM.",
-        "tech": ["JavaScript", "Node.js", "Express"],
-        "link": "https://github.com/aarel/prompt-mode",
-        "active": true
     }
 ]

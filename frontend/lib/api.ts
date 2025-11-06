@@ -1,31 +1,24 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
+import type { Post, Project } from "../types";
 
-export async function getProjects() {
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+
+async function fetchJson<T>(path: string): Promise<T> {
     try {
-        const res = await fetch(`${API_URL}/api/projects`, {
-            cache: 'no-store' // Prevents Next.js caching issues
-        });
-        if (!res.ok) {
-            throw new Error('Failed to fetch projects');
+        const response = await fetch(`${API_URL}${path}`, { cache: "no-store" });
+        if (!response.ok) {
+            throw new Error(`Request failed with status ${response.status}`);
         }
-        return res.json();
+        return (await response.json()) as T;
     } catch (error) {
-        console.error('Error fetching projects:', error);
-        return []; // Return empty array instead of crashing
+        console.error(`Error fetching ${path}:`, error);
+        return [] as T;
     }
 }
 
-export async function getPosts() {
-    try {
-        const res = await fetch(`${API_URL}/api/posts`, {
-            cache: 'no-store'
-        });
-        if (!res.ok) {
-            throw new Error('Failed to fetch posts');
-        }
-        return res.json();
-    } catch (error) {
-        console.error('Error fetching posts:', error);
-        return [];
-    }
+export function getProjects(): Promise<Project[]> {
+    return fetchJson<Project[]>("/api/projects");
+}
+
+export function getPosts(): Promise<Post[]> {
+    return fetchJson<Post[]>("/api/posts");
 }

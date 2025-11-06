@@ -1,16 +1,31 @@
+import { notFound } from "next/navigation";
 import React from "react";
 import { getPosts } from "../../../lib/api";
+import type { Post } from "../../../types";
+
+const formatDate = (value: string) =>
+    new Date(value).toLocaleDateString(undefined, {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+    });
 
 export default async function BlogPost({ params }: { params: { slug: string } }) {
-  const posts = await getPosts();
-  const post = posts.find((project: any) => project.slug === params.slug);
-  if (!post) return <p className="p-8">Post not found.</p>;
+    const posts: Post[] = await getPosts();
+    const post = posts.find((item) => item.slug === params.slug) ?? notFound();
 
-  return (
-    <article className="max-w-3xl mx-auto p-8">
-      <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
-      <p className="text-gray-500 text-sm mb-6">{post.date}</p>
-      <div className="text-gray-700 leading-relaxed">{post.content}</div>
-    </article>
-  );
+    return (
+        <article className="max-w-4xl px-6 py-20 mx-auto text-slate-200">
+            <header className="flex flex-col gap-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.4em] text-accent/80">
+                    {formatDate(post.date)}
+                </p>
+                <h1 className="text-4xl font-semibold text-white sm:text-5xl">{post.title}</h1>
+                <p className="max-w-2xl text-base leading-relaxed text-slate-300">{post.excerpt}</p>
+            </header>
+            <div className="mt-12 rounded-3xl border border-white/10 bg-slate-900/40 p-10 text-lg leading-relaxed text-slate-100 shadow-lg shadow-slate-900/30">
+                {post.content}
+            </div>
+        </article>
+    );
 }

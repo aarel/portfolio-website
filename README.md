@@ -3,6 +3,10 @@ Portfolio Website
 A full-stack personal portfolio site built with **Next.js (React + TypeScript + TailwindCSS)** on the frontend and a lightweight **Node.js / Express API** on the backend.  
 The goal: a modular, easily updated portfolio that can run locally, sync via GitHub, and deploy to services like **Vercel** or **Render**.
 
+## Contributor Guide
+
+See [Repository Guidelines](AGENTS.md) for coding standards, testing expectations, and PR requirements.
+
 ---
 
 ## Features
