@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Portfolio Website – Visual README</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+            :root {
+                color-scheme: dark;
+                --bg: #04060b;
+                --panel: rgba(12, 17, 32, 0.88);
+                --panel-strong: rgba(7, 11, 21, 0.92);
+                --text: #f8fafc;
+                --muted: #9ca3af;
+                --accent: #34d399;
+                --accent-2: #22d3ee;
+                --border: rgba(255, 255, 255, 0.08);
+            }
+            * {
+                box-sizing: border-box;
+                font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            }
+            body {
+                margin: 0;
+                padding: 56px 18px 96px;
+                background: radial-gradient(circle at top, #101a32, var(--bg) 55%);
+                color: var(--text);
+                font-size: 16px;
+                line-height: 1.65;
+            }
+            main {
+                max-width: 1040px;
+                margin: 0 auto;
+                background: var(--panel);
+                border: 1px solid var(--border);
+                border-radius: 36px;
+                padding: 64px 72px 84px;
+                box-shadow: 0 40px 120px rgba(4, 6, 11, 0.75);
+                backdrop-filter: blur(16px);
+            }
+            h1 {
+                margin: 0 0 18px;
+                font-size: clamp(2.5rem, 4vw, 3.4rem);
+                line-height: 1.05;
+            }
+            h2 {
+                margin: 72px 0 18px;
+                font-size: clamp(1.6rem, 3vw, 2.2rem);
+            }
+            p.lede {
+                font-size: 1.15rem;
+                color: rgba(248, 250, 252, 0.92);
+                max-width: 54ch;
+            }
+            .badge-row {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin: 40px 0 48px;
+            }
+            .badge {
+                padding: 8px 18px;
+                border-radius: 999px;
+                border: 1px solid var(--border);
+                font-size: 0.78rem;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+                color: var(--muted);
+            }
+            figure.hero {
+                margin: 0;
+                background: linear-gradient(135deg, rgba(34, 211, 238, 0.3), rgba(52, 211, 153, 0.25));
+                border-radius: 32px;
+                padding: 32px;
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                box-shadow: 0 35px 160px rgba(30, 140, 220, 0.28);
+            }
+            figure.hero img {
+                width: 100%;
+                border-radius: 24px;
+                border: 1px solid rgba(255, 255, 255, 0.18);
+                display: block;
+                background: #000914;
+                box-shadow: 0 30px 80px rgba(4, 6, 12, 0.8);
+            }
+            figure.hero figcaption {
+                text-align: center;
+                margin-top: 18px;
+                font-size: 0.95rem;
+                color: rgba(248, 250, 252, 0.7);
+            }
+            .grid {
+                display: grid;
+                gap: 20px;
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            }
+            .card {
+                background: var(--panel-strong);
+                border-radius: 20px;
+                padding: 24px;
+                border: 1px solid var(--border);
+            }
+            .card strong {
+                display: block;
+                margin-bottom: 8px;
+                font-size: 1.1rem;
+            }
+            ul.feature-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: grid;
+                gap: 14px;
+            }
+            ul.feature-list li {
+                padding: 18px 22px;
+                background: var(--panel-strong);
+                border: 1px solid var(--border);
+                border-radius: 20px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 24px;
+                font-size: 0.98rem;
+            }
+            th,
+            td {
+                padding: 16px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                text-align: left;
+            }
+            th {
+                text-transform: uppercase;
+                font-size: 0.8rem;
+                letter-spacing: 0.08em;
+                color: var(--muted);
+            }
+            pre {
+                background: #050910;
+                padding: 26px;
+                border-radius: 22px;
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                overflow-x: auto;
+                font-size: 0.95rem;
+                line-height: 1.55;
+            }
+            code {
+                font-family: 'JetBrains Mono', 'Fira Code', Menlo, Consolas, monospace;
+            }
+            a {
+                color: var(--accent);
+                text-decoration: none;
+            }
+            .steps {
+                counter-reset: steps;
+                display: grid;
+                gap: 18px;
+                margin-top: 28px;
+            }
+            .steps div {
+                position: relative;
+                padding: 22px 24px 22px 88px;
+                border-radius: 22px;
+                background: var(--panel-strong);
+                border: 1px solid var(--border);
+            }
+            .steps div::before {
+                counter-increment: steps;
+                content: counter(steps);
+                position: absolute;
+                left: 26px;
+                top: 20px;
+                width: 46px;
+                height: 46px;
+                border-radius: 14px;
+                background: linear-gradient(135deg, var(--accent), var(--accent-2));
+                display: grid;
+                place-items: center;
+                font-weight: 700;
+                color: #03120f;
+                font-size: 1.05rem;
+            }
+            footer {
+                margin-top: 72px;
+                font-size: 0.92rem;
+                color: rgba(255, 255, 255, 0.72);
+                text-align: center;
+            }
+            @media (max-width: 768px) {
+                body {
+                    padding: 28px 10px 64px;
+                }
+                main {
+                    padding: 40px 26px 56px;
+                    border-radius: 26px;
+                }
+                .steps div {
+                    padding-left: 72px;
+                }
+                .steps div::before {
+                    left: 18px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Portfolio Website</h1>
+                <p class="lede">
+                    Full-stack personal site powered by Next.js 14, TailwindCSS, and an Express API. Build and ship projects, posts, and case studies from a single codebase tuned for modern deployments.
+                </p>
+                <div class="badge-row">
+                    <span class="badge">Next.js 14</span>
+                    <span class="badge">Express API</span>
+                    <span class="badge">TypeScript</span>
+                    <span class="badge">TailwindCSS</span>
+                    <span class="badge">Monorepo Workflow</span>
+                </div>
+            </header>
+
+            <figure class="hero">
+                <img src="./frontend/public/assets/portfolio-home.svg" alt="Portfolio Website home page hero preview" />
+                <figcaption>Homepage spotlight: navigation, hero headline, and project grid from the live UI.</figcaption>
+            </figure>
+
+            <section>
+                <div class="grid">
+                    <div class="card">
+                        <strong>Frontend</strong>
+                        Next.js App Router, React Server Components, and Tailwind for rapid UI iteration.
+                    </div>
+                    <div class="card">
+                        <strong>Backend</strong>
+                        Express service serving JSON content to the UI as REST endpoints.
+                    </div>
+                    <div class="card">
+                        <strong>Deployment</strong>
+                        Targets Vercel (frontend) and Render/Fly (backend) with matching build commands.
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Features</h2>
+                <ul class="feature-list">
+                    <li>
+                        <strong>Modular components</strong>
+                        Cards, layout primitives, and section builders live in <code>frontend/components</code>.
+                    </li>
+                    <li>
+                        <strong>Dynamic content</strong>
+                        Projects and posts stored in JSON (<code>backend/src/data</code>) and served via <code>/api/projects</code> + <code>/api/posts</code>.
+                    </li>
+                    <li>
+                        <strong>Tailwind theming</strong>
+                        Custom palette + typography in <code>frontend/tailwind.config.ts</code> keeps utilities consistent.
+                    </li>
+                    <li>
+                        <strong>API growth path</strong>
+                        Route handlers in <code>backend/src/routes</code> make it easy to add auth, filters, or pagination.
+                    </li>
+                    <li>
+                        <strong>Cross-platform hosting</strong>
+                        Works offline, across LAN, or on cloud providers without config drift.
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Tech Stack</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Layer</th>
+                            <th>Technology</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Frontend</strong></td>
+                            <td>Next.js 14, React 18, TypeScript, TailwindCSS</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Backend</strong></td>
+                            <td>Node.js 22, Express 5, TypeScript</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Styling</strong></td>
+                            <td>TailwindCSS + custom theme tokens</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Data</strong></td>
+                            <td>JSON files (<code>backend/src/data</code>)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Deployment</strong></td>
+                            <td>Vercel (frontend) + Render/Fly (backend)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2>Folder Structure</h2>
+                <pre><code>portfolio-website/
+├─ backend/
+│  ├─ src/
+│  │  ├─ routes/
+│  │  │  ├─ posts.ts
+│  │  │  └─ projects.ts
+│  │  ├─ data/
+│  │  │  ├─ posts.json
+│  │  │  └─ projects.json
+│  │  └─ server.ts
+│  ├─ package.json
+│  └─ tsconfig.json
+└─ frontend/
+   ├─ app/
+   │  ├─ globals.css
+   │  ├─ layout.tsx
+   │  ├─ page.tsx
+   │  └─ projects/[slug]/page.tsx
+   ├─ components/
+   │  ├─ Navbar.tsx
+   │  ├─ Footer.tsx
+   │  └─ ProjectCard.tsx
+   ├─ lib/api.ts
+   ├─ tailwind.config.ts
+   └─ package.json</code></pre>
+            </section>
+
+            <section>
+                <h2>Local Setup</h2>
+                <div class="steps">
+                    <div>
+                        <strong>Clone</strong>
+                        <div><code>git clone https://github.com/&lt;your_username&gt;/portfolio-website.git && cd portfolio-website</code></div>
+                    </div>
+                    <div>
+                        <strong>Install</strong>
+                        <div><code>cd backend && npm install && cd ../frontend && npm install</code></div>
+                    </div>
+                    <div>
+                        <strong>Run backend</strong>
+                        <div><code>cd backend && npm run dev</code> → http://localhost:4000</div>
+                    </div>
+                    <div>
+                        <strong>Run frontend</strong>
+                        <div><code>cd frontend && npm run dev</code> → http://localhost:3000</div>
+                    </div>
+                    <div>
+                        <strong>Verify</strong>
+                        <div>Hit the UI at http://localhost:3000 and the API at http://localhost:4000/api/projects.</div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Contributor Guide</h2>
+                <p>
+                    Align with the standards outlined in <a href="./AGENTS.md" target="_blank" rel="noreferrer noopener">AGENTS.md</a> for coding style, testing, linting, and PR formatting.
+                </p>
+            </section>
+
+            <section>
+                <h2>Deployment</h2>
+                <p>
+                    Production builds run <code>npm run build</code> in <code>/frontend</code> and <code>/backend</code>. Lint the UI (<code>npm run lint</code> in <code>/frontend</code>) and confirm both dev servers start cleanly before shipping to Vercel/Render.
+                </p>
+            </section>
+
+            <footer>Crafted to showcase the homepage experience front-and-center.</footer>
+        </main>
+    </body>
+</html>
