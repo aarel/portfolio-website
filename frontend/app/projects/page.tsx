@@ -6,7 +6,15 @@ import { getProjects } from "../../lib/api";
 import type { Project } from "../../types";
 
 export default async function ProjectsPage() {
-    const projects: Project[] = await getProjects();
+    let projects: Project[] = [];
+    let loadFailed = false;
+
+    try {
+        projects = await getProjects();
+    } catch (error) {
+        console.error("Failed to load projects list:", error);
+        loadFailed = true;
+    }
 
     return (
         <section className="max-w-6xl px-6 py-24 mx-auto">
@@ -18,11 +26,17 @@ export default async function ProjectsPage() {
                     experience design can unlock the next wave of intelligent products.
                 </p>
             </div>
-            <div className="mt-14 grid gap-8 md:grid-cols-2">
-                {projects.map((project) => (
-                    <ProjectCard key={project.id} project={project} />
-                ))}
-            </div>
+            {loadFailed ? (
+                <div className="mt-14 rounded-3xl border border-red-500/30 bg-red-500/10 px-6 py-5 text-red-100">
+                    Projects are temporarily unavailable. Refresh the page or check back soon.
+                </div>
+            ) : (
+                <div className="mt-14 grid gap-8 md:grid-cols-2">
+                    {projects.map((project) => (
+                        <ProjectCard key={project.id} project={project} />
+                    ))}
+                </div>
+            )}
         </section>
     );
 }

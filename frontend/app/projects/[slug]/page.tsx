@@ -5,7 +5,21 @@ import { getProjects } from "../../../lib/api";
 import type { Project } from "../../../types";
 
 export default async function ProjectDetail({ params }: { params: { slug: string } }) {
-    const projects: Project[] = await getProjects();
+    let projects: Project[] = [];
+
+    try {
+        projects = await getProjects();
+    } catch (error) {
+        console.error("Failed to load project detail:", error);
+        return (
+            <section className="max-w-5xl px-6 py-20 mx-auto text-slate-200">
+                <div className="rounded-3xl border border-red-500/30 bg-red-500/10 px-6 py-5 text-red-100">
+                    This project story is temporarily unavailable. Please refresh or come back later.
+                </div>
+            </section>
+        );
+    }
+
     const project = projects.find((item) => item.slug === params.slug) ?? notFound();
 
     return (
@@ -14,7 +28,7 @@ export default async function ProjectDetail({ params }: { params: { slug: string
                 href="/projects"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-slate-300 transition-colors duration-200 hover:bg-white/10"
             >
-                <span aria-hidden>←</span>
+                <span aria-hidden="true">←</span>
                 Back to projects
             </Link>
             <header className="mt-10 flex flex-col gap-6 border-b border-white/10 pb-10">
@@ -57,11 +71,11 @@ export default async function ProjectDetail({ params }: { params: { slug: string
                         <a
                             href={project.link}
                             className="inline-flex items-center justify-start gap-2 rounded-full border border-white/10 px-4 py-2 text-sm font-semibold text-white transition-colors duration-200 hover:bg-white/10"
-                            rel="noreferrer"
+                            rel="noreferrer noopener"
                             target="_blank"
                         >
                             View on GitHub
-                            <span aria-hidden>↗</span>
+                            <span aria-hidden="true">↗</span>
                         </a>
                     </div>
                     <div className="flex flex-col gap-3">

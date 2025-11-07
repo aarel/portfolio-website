@@ -30,16 +30,16 @@ export default function ProjectCard({ project }: { project: Project }) {
                     className="inline-flex items-center justify-center gap-2 rounded-full border border-primary/40 px-4 py-2 text-sm font-semibold text-primary transition-colors duration-200 hover:bg-primary hover:text-slate-950"
                 >
                     Explore build
-                    <span aria-hidden>→</span>
+                    <span aria-hidden="true">→</span>
                 </Link>
                 <a
                     href={project.link}
                     className="inline-flex items-center justify-center gap-2 text-sm font-medium text-slate-300 transition-colors duration-200 hover:text-white"
-                    rel="noreferrer"
+                    rel="noreferrer noopener"
                     target="_blank"
                 >
                     GitHub
-                    <span aria-hidden>↗</span>
+                    <span aria-hidden="true">↗</span>
                 </a>
             </div>
         </article>

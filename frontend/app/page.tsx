@@ -22,7 +22,16 @@ const highlightItems = [
 ];
 
 export default async function Home() {
-    const projects: Project[] = await getProjects();
+    let projects: Project[] = [];
+    let projectsError = false;
+
+    try {
+        projects = await getProjects();
+    } catch (error) {
+        console.error("Failed to load projects on Home page:", error);
+        projectsError = true;
+    }
+
     const featuredProjects = projects.slice(0, 4);
 
     return (
@@ -48,7 +57,7 @@ export default async function Home() {
                                 className="inline-flex items-center justify-center gap-3 rounded-full border border-primary/40 bg-primary px-6 py-3 text-base font-semibold text-slate-950 transition-transform duration-200 hover:-translate-y-0.5"
                             >
                                 View featured work
-                                <span aria-hidden>→</span>
+                                <span aria-hidden="true">→</span>
                             </Link>
                             <Link
                                 href="/blog"
@@ -104,11 +113,17 @@ export default async function Home() {
                         Browse all projects
                     </Link>
                 </div>
-                <div className="mt-12 grid gap-8 md:grid-cols-2">
-                    {featuredProjects.map((project) => (
-                        <ProjectCard key={project.id} project={project} />
-                    ))}
-                </div>
+                {projectsError ? (
+                    <div className="mt-12 rounded-3xl border border-red-500/30 bg-red-500/10 px-6 py-5 text-red-100">
+                        Featured work is temporarily unavailable. Please try again shortly.
+                    </div>
+                ) : (
+                    <div className="mt-12 grid gap-8 md:grid-cols-2">
+                        {featuredProjects.map((project) => (
+                            <ProjectCard key={project.id} project={project} />
+                        ))}
+                    </div>
+                )}
             </section>
         </main>
     );

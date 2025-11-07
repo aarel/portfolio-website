@@ -27,7 +27,7 @@ export default function PostCard({ post }: { post: Post }) {
                     className="inline-flex items-center justify-center gap-2 rounded-full border border-accent/40 px-4 py-2 text-sm font-semibold text-accent transition-colors duration-200 hover:bg-accent hover:text-slate-950"
                 >
                     Read full story
-                    <span aria-hidden>→</span>
+                    <span aria-hidden="true">→</span>
                 </Link>
                 <span className="text-xs uppercase tracking-[0.35em] text-slate-500">Insights</span>
             </div>

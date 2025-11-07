@@ -11,7 +11,7 @@ async function fetchJson<T>(path: string): Promise<T> {
         return (await response.json()) as T;
     } catch (error) {
         console.error(`Error fetching ${path}:`, error);
-        return [] as T;
+        throw error instanceof Error ? error : new Error("Unknown fetch error");
     }
 }
 

@@ -6,7 +6,15 @@ import { getPosts } from "../../lib/api";
 import type { Post } from "../../types";
 
 export default async function BlogPage() {
-    const posts: Post[] = await getPosts();
+    let posts: Post[] = [];
+    let loadFailed = false;
+
+    try {
+        posts = await getPosts();
+    } catch (error) {
+        console.error("Failed to load posts list:", error);
+        loadFailed = true;
+    }
 
     return (
         <section className="max-w-6xl px-6 py-24 mx-auto">
@@ -17,11 +25,17 @@ export default async function BlogPage() {
                     Deep dives, post-mortems, and observations on crafting intelligent products, with a bias toward shipping.
                 </p>
             </div>
-            <div className="mt-14 grid gap-8 md:grid-cols-2">
-                {posts.map((post) => (
-                    <PostCard key={post.id} post={post} />
-                ))}
-            </div>
+            {loadFailed ? (
+                <div className="mt-14 rounded-3xl border border-red-500/30 bg-red-500/10 px-6 py-5 text-red-100">
+                    Blog posts are temporarily unavailable. Please try again shortly.
+                </div>
+            ) : (
+                <div className="mt-14 grid gap-8 md:grid-cols-2">
+                    {posts.map((post) => (
+                        <PostCard key={post.id} post={post} />
+                    ))}
+                </div>
+            )}
         </section>
     );
 }

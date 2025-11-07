@@ -11,7 +11,21 @@ const formatDate = (value: string) =>
     });
 
 export default async function BlogPost({ params }: { params: { slug: string } }) {
-    const posts: Post[] = await getPosts();
+    let posts: Post[] = [];
+
+    try {
+        posts = await getPosts();
+    } catch (error) {
+        console.error("Failed to load blog detail:", error);
+        return (
+            <section className="max-w-4xl px-6 py-20 mx-auto text-slate-200">
+                <div className="rounded-3xl border border-red-500/30 bg-red-500/10 px-6 py-5 text-red-100">
+                    This article is temporarily unavailable. Please try again in a few minutes.
+                </div>
+            </section>
+        );
+    }
+
     const post = posts.find((item) => item.slug === params.slug) ?? notFound();
 
     return (

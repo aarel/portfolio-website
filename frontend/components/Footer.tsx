@@ -24,7 +24,7 @@ export default function Footer() {
                                 key={label}
                                 href={href}
                                 className="inline-flex items-center justify-center px-4 py-2 text-slate-200 transition-colors duration-200 hover:text-white"
-                                rel="noreferrer"
+                                rel="noreferrer noopener"
                                 target={href.startsWith("http") ? "_blank" : undefined}
                             >
                                 {label}

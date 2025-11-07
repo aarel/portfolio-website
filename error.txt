@@ -1,0 +1,53 @@
+> frontend@0.1.0 dev
+> next dev -H 0.0.0.0
+
+  ▲ Next.js 14.2.33
+  - Local:        http://localhost:3000
+  - Network:      http://0.0.0.0:3000
+  - Environments: .env.local
+  - Experiments (use with caution):
+    · typedRoutes
+
+ ✓ Starting...
+ ✓ Ready in 3s
+ ○ Compiling / ...
+ ✓ Compiled / in 3.1s (511 modules)
+Error fetching /api/projects: TypeError: fetch failed
+    at node:internal/deps/undici/undici:15845:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async fetchJson (webpack-internal:///(rsc)/./lib/api.ts:9:26)
+    at async Home (webpack-internal:///(rsc)/./app/page.tsx:34:22) {
+  [cause]: AggregateError [ECONNREFUSED]:
+      at internalConnectMultiple (node:net:1134:18)
+      at afterConnectMultiple (node:net:1715:7) {
+    code: 'ECONNREFUSED',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+ GET / 200 in 3264ms
+ ✓ Compiled /projects in 246ms (513 modules)
+Error fetching /api/projects: TypeError: fetch failed
+    at node:internal/deps/undici/undici:15845:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async fetchJson (webpack-internal:///(rsc)/./lib/api.ts:9:26)
+    at async ProjectsPage (webpack-internal:///(rsc)/./app/projects/page.tsx:18:22) {
+  [cause]: AggregateError [ECONNREFUSED]:
+      at internalConnectMultiple (node:net:1134:18)
+      at afterConnectMultiple (node:net:1715:7) {
+    code: 'ECONNREFUSED',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+ ✓ Compiled /blog in 187ms (502 modules)
+Error fetching /api/posts: TypeError: fetch failed
+    at node:internal/deps/undici/undici:15845:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async fetchJson (webpack-internal:///(rsc)/./lib/api.ts:9:26)
+    at async BlogPage (webpack-internal:///(rsc)/./app/blog/page.tsx:18:19) {
+  [cause]: AggregateError [ECONNREFUSED]:
+      at internalConnectMultiple (node:net:1134:18)
+      at afterConnectMultiple (node:net:1715:7) {
+    code: 'ECONNREFUSED',
+    [errors]: [ [Error], [Error] ]
+  }
+}
