@@ -1,0 +1,19 @@
+# Node
+node_modules/
+npm-debug.log
+env.local
+.env
+
+# Build Artifacts
+# dist/
+.next/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Agent Files
+agents/
+CLAUDE.md
+AGENTS.md
+GEMINI.md

@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Portfolio Website – Visual README</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+            :root {
+                --primary: #2563eb;
+                --accent: #9333ea;
+                --bg-dark: #0f172a;
+                --bg-slate: #1e293b;
+                --text-white: #f1f5f9;
+                --text-light: #cbd5e1;
+                --text-muted: #94a3b8;
+                --border-light: rgba(255, 255, 255, 0.1);
+            }
+
+            * {
+                box-sizing: border-box;
+                font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                background: var(--bg-dark);
+                color: var(--text-light);
+                font-size: 16px;
+                line-height: 1.6;
+                position: relative;
+                overflow-x: hidden;
+            }
+
+            body::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 50%;
+                width: 100%;
+                height: 500px;
+                background: radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 55%);
+                transform: translateX(-50%);
+                pointer-events: none;
+                z-index: 0;
+            }
+
+            body::after {
+                content: '';
+                position: fixed;
+                bottom: 0;
+                left: 50%;
+                width: 100%;
+                height: 300px;
+                background: radial-gradient(circle at bottom, rgba(168, 85, 247, 0.18), transparent 65%);
+                transform: translateX(-50%);
+                pointer-events: none;
+                z-index: 0;
+            }
+
+            main {
+                position: relative;
+                z-index: 1;
+            }
+
+            section {
+                max-width: 1440px;
+                margin: 0 auto;
+                padding: 96px 24px;
+            }
+
+            .hero-section {
+                padding-top: 120px;
+            }
+
+            .hero-grid {
+                display: grid;
+                grid-template-columns: 1.1fr 0.9fr;
+                gap: 64px;
+                align-items: start;
+            }
+
+            .hero-left h1 {
+                margin: 0 0 24px;
+                font-size: clamp(2.5rem, 5vw, 3.75rem);
+                font-weight: 600;
+                line-height: 1.1;
+                color: white;
+            }
+
+            .hero-left p {
+                margin: 0 0 24px;
+                max-width: 44ch;
+                font-size: 1.125rem;
+                color: var(--text-light);
+                line-height: 1.6;
+            }
+
+            .badge-pill {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                border: 1px solid rgba(37, 99, 235, 0.3);
+                background: rgba(37, 99, 235, 0.1);
+                border-radius: 9999px;
+                padding: 8px 20px;
+                margin-bottom: 32px;
+                font-size: 0.75rem;
+                font-weight: 600;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+                color: var(--primary);
+            }
+
+            .button-group {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 16px;
+                margin-bottom: 48px;
+            }
+
+            .button {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+                padding: 12px 24px;
+                border-radius: 9999px;
+                font-size: 1rem;
+                font-weight: 600;
+                text-decoration: none;
+                transition: all 0.2s;
+                border: 1px solid;
+                cursor: pointer;
+            }
+
+            .button.primary {
+                background: var(--primary);
+                border-color: var(--primary);
+                color: #0f172a;
+            }
+
+            .button.primary:hover {
+                transform: translateY(-2px);
+            }
+
+            .button.secondary {
+                background: transparent;
+                border-color: rgba(255, 255, 255, 0.2);
+                color: white;
+            }
+
+            .button.secondary:hover {
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+            .stats-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 24px;
+            }
+
+            .stat-card {
+                border: 1px solid var(--border-light);
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 16px;
+                padding: 20px 16px;
+            }
+
+            .stat-value {
+                display: block;
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: white;
+                margin-bottom: 4px;
+            }
+
+            .stat-label {
+                display: block;
+                font-size: 0.65rem;
+                font-weight: 600;
+                letter-spacing: 0.03em;
+                text-transform: uppercase;
+                color: var(--text-muted);
+            }
+
+            .hero-right {
+                border: 1px solid var(--border-light);
+                background: rgba(15, 23, 42, 0.5);
+                border-radius: 24px;
+                padding: 40px;
+                position: sticky;
+                top: 96px;
+                height: fit-content;
+            }
+
+            .focus-title {
+                margin: 0 0 24px;
+                font-size: 1.25rem;
+                font-weight: 600;
+                color: white;
+            }
+
+            .focus-items {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+                margin-bottom: 32px;
+            }
+
+            .focus-item h3 {
+                margin: 0 0 8px;
+                font-size: 1.125rem;
+                font-weight: 600;
+                color: var(--primary);
+            }
+
+            .focus-item p {
+                margin: 0;
+                font-size: 0.95rem;
+                line-height: 1.5;
+                color: var(--text-light);
+            }
+
+            .collab-box {
+                border: 1px solid rgba(147, 51, 234, 0.3);
+                background: rgba(147, 51, 234, 0.1);
+                border-radius: 16px;
+                padding: 20px 24px;
+                font-size: 0.9rem;
+                color: var(--accent);
+            }
+
+            .featured-section {
+                margin-top: 96px;
+            }
+
+            .section-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                margin-bottom: 48px;
+                gap: 32px;
+            }
+
+            .section-title {
+                margin: 0 0 16px;
+                font-size: clamp(2rem, 4vw, 2.5rem);
+                font-weight: 600;
+                color: white;
+            }
+
+            .section-subtitle {
+                margin: 0;
+                font-size: 1rem;
+                color: var(--text-light);
+                max-width: 50ch;
+            }
+
+            .card-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 32px;
+            }
+
+            .project-card {
+                border: 1px solid var(--border-light);
+                background: rgba(30, 41, 59, 0.4);
+                border-radius: 20px;
+                padding: 32px;
+                transition: all 0.3s;
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .project-card:hover {
+                background: rgba(30, 41, 59, 0.6);
+                border-color: var(--primary);
+                transform: translateY(-4px);
+            }
+
+            .feature-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 24px;
+                margin-top: 32px;
+            }
+
+            .feature-item {
+                border: 1px solid var(--border-light);
+                background: rgba(30, 41, 59, 0.4);
+                border-radius: 16px;
+                padding: 24px;
+            }
+
+            .feature-item strong {
+                display: block;
+                margin-bottom: 8px;
+                font-size: 1rem;
+                font-weight: 600;
+                color: white;
+            }
+
+            .feature-item p {
+                margin: 0;
+                font-size: 0.95rem;
+                color: var(--text-light);
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 32px;
+                font-size: 0.95rem;
+            }
+
+            th, td {
+                padding: 16px 20px;
+                border-bottom: 1px solid var(--border-light);
+                text-align: left;
+            }
+
+            th {
+                background: rgba(255, 255, 255, 0.03);
+                font-size: 0.75rem;
+                font-weight: 600;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                color: var(--text-muted);
+            }
+
+            td strong {
+                color: white;
+            }
+
+            pre {
+                background: #000914;
+                border: 1px solid var(--border-light);
+                border-radius: 16px;
+                padding: 24px;
+                overflow-x: auto;
+                font-size: 0.9rem;
+                line-height: 1.6;
+                margin: 32px 0;
+            }
+
+            code {
+                font-family: 'Geist Mono', 'Fira Code', monospace;
+                color: #e2e8f0;
+            }
+
+            .steps {
+                counter-reset: step;
+                display: grid;
+                gap: 16px;
+                margin-top: 32px;
+            }
+
+            .step {
+                position: relative;
+                background: rgba(30, 41, 59, 0.4);
+                border: 1px solid var(--border-light);
+                border-radius: 16px;
+                padding: 20px 24px 20px 72px;
+                counter-increment: step;
+            }
+
+            .step::before {
+                content: counter(step);
+                position: absolute;
+                left: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 36px;
+                height: 36px;
+                border-radius: 8px;
+                background: linear-gradient(135deg, var(--primary), var(--accent));
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                color: white;
+                font-size: 0.95rem;
+            }
+
+            .step strong {
+                display: block;
+                margin-bottom: 6px;
+                color: white;
+            }
+
+            .step code {
+                background: rgba(0, 0, 0, 0.5);
+                padding: 2px 6px;
+                border-radius: 4px;
+            }
+
+            footer {
+                text-align: center;
+                color: var(--text-muted);
+                font-size: 0.9rem;
+                padding: 64px 24px;
+                border-top: 1px solid var(--border-light);
+                margin-top: 96px;
+            }
+
+            @media (max-width: 1024px) {
+                .hero-grid {
+                    grid-template-columns: 1fr;
+                    gap: 48px;
+                }
+
+                .hero-right {
+                    position: static;
+                }
+
+                .section-header {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+            }
+
+            @media (max-width: 768px) {
+                section {
+                    padding: 64px 16px;
+                }
+
+                .hero-section {
+                    padding-top: 64px;
+                }
+
+                .hero-left h1 {
+                    font-size: 2rem;
+                }
+
+                .stats-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .button-group {
+                    flex-direction: column;
+                }
+
+                .button {
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <section class="hero-section">
+                <div class="hero-grid">
+                    <div class="hero-left">
+                        <span class="badge-pill">Adam Arellano</span>
+                        <h1>Architecting modular AI systems from concept to production.</h1>
+                        <p>I pair deep engineering with product intuition to launch resilient automation, applied AI, and immersive storytelling experiences. From startup experiments to enterprise platforms, I build the connective tissue that turns ideas into living systems.</p>
+
+                        <div class="button-group">
+                            <a href="#" class="button primary">View featured work →</a>
+                            <a href="#" class="button secondary">Read build notes</a>
+                        </div>
+
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <span class="stat-value">40+</span>
+                                <span class="stat-label">Production launches</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-value">12k+ hrs</span>
+                                <span class="stat-label">Automation savings</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-value">5000+</span>
+                                <span class="stat-label">LLM evaluations</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-right">
+                        <h2 class="focus-title">Focus areas</h2>
+                        <div class="focus-items">
+                            <div class="focus-item">
+                                <h3>LLM product architecture</h3>
+                                <p>Designing role-based orchestration, evaluation harnesses, and observability so AI features scale with confidence.</p>
+                            </div>
+                            <div class="focus-item">
+                                <h3>Automation pipelines</h3>
+                                <p>Connecting data, agents, and human review loops to streamline workflows for product and platform teams.</p>
+                            </div>
+                            <div class="focus-item">
+                                <h3>Immersive prototypes</h3>
+                                <p>Rapidly building interactive experiences that blend storytelling, simulation, and adaptive systems.</p>
+                            </div>
+                        </div>
+                        <div class="collab-box">
+                            Currently open to collaborations on agent strategy, narrative AI, and technical leadership engagements.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="featured-section">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title">Featured work</h2>
+                        <p class="section-subtitle">A sample of recent builds spanning applied AI, automation, and experiential design.</p>
+                    </div>
+                    <a href="#" class="button secondary">Browse all projects</a>
+                </div>
+
+                <div class="card-grid">
+                    <a href="#" class="project-card">
+                        <h3 style="margin: 0 0 12px; font-size: 1.25rem; color: white;">Project Title</h3>
+                        <p style="margin: 0; color: var(--text-light);">Brief description of the project and its impact on the platform or product.</p>
+                    </a>
+                    <a href="#" class="project-card">
+                        <h3 style="margin: 0 0 12px; font-size: 1.25rem; color: white;">Another Project</h3>
+                        <p style="margin: 0; color: var(--text-light);">Description of the work and key technologies or methodologies applied.</p>
+                    </a>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <strong>Modular components</strong>
+                        <p>Cards, layout primitives, and section builders live in <code>frontend/components</code>.</p>
+                    </div>
+                    <div class="feature-item">
+                        <strong>Dynamic content</strong>
+                        <p>Projects and posts stored in JSON (<code>backend/src/data</code>) and served via REST endpoints.</p>
+                    </div>
+                    <div class="feature-item">
+                        <strong>Tailwind theming</strong>
+                        <p>Custom palette + typography in <code>frontend/tailwind.config.ts</code> keeps utilities consistent.</p>
+                    </div>
+                    <div class="feature-item">
+                        <strong>API growth path</strong>
+                        <p>Route handlers in <code>backend/src/routes</code> make it easy to add auth, filters, or pagination.</p>
+                    </div>
+                    <div class="feature-item">
+                        <strong>Cross-platform hosting</strong>
+                        <p>Works offline, across LAN, or on cloud providers without config drift.</p>
+                    </div>
+                    <div class="feature-item">
+                        <strong>Graceful error handling</strong>
+                        <p>Frontend displays user-friendly messages when the API is unavailable.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">Tech Stack</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Layer</th>
+                            <th>Technology</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Frontend</strong></td>
+                            <td>Next.js 14, React 18, TypeScript, TailwindCSS</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Backend</strong></td>
+                            <td>Node.js, Express 4, TypeScript</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Styling</strong></td>
+                            <td>TailwindCSS + custom theme tokens</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Data</strong></td>
+                            <td>JSON files (<code>backend/src/data</code>)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Deployment</strong></td>
+                            <td>Vercel (frontend) + Render/Fly (backend)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2 class="section-title">Folder Structure</h2>
+                <pre><code>portfolio-website/
+├─ backend/
+│  ├─ src/
+│  │  ├─ routes/
+│  │  │  ├─ posts.ts
+│  │  │  └─ projects.ts
+│  │  ├─ data/
+│  │  │  ├─ posts.json
+│  │  │  └─ projects.json
+│  │  └─ server.ts
+│  ├─ package.json
+│  └─ tsconfig.json
+└─ frontend/
+   ├─ app/
+   │  ├─ globals.css
+   │  ├─ layout.tsx
+   │  ├─ page.tsx
+   │  └─ projects/[slug]/page.tsx
+   ├─ components/
+   │  ├─ Navbar.tsx
+   │  ├─ Footer.tsx
+   │  └─ ProjectCard.tsx
+   ├─ lib/api.ts
+   ├─ tailwind.config.ts
+   └─ package.json</code></pre>
+            </section>
+
+            <section>
+                <h2 class="section-title">Local Setup</h2>
+                <div class="steps">
+                    <div class="step">
+                        <strong>Clone</strong>
+                        <code>git clone https://github.com/&lt;your_username&gt;/portfolio-website.git && cd portfolio-website</code>
+                    </div>
+                    <div class="step">
+                        <strong>Install</strong>
+                        <code>cd backend && npm install && cd ../frontend && npm install</code>
+                    </div>
+                    <div class="step">
+                        <strong>Run backend</strong>
+                        <code>cd backend && npm run dev</code> → http://localhost:4000
+                    </div>
+                    <div class="step">
+                        <strong>Run frontend</strong>
+                        <code>cd frontend && npm run dev</code> → http://localhost:3000
+                    </div>
+                    <div class="step">
+                        <strong>Verify</strong>
+                        Visit http://localhost:3000 and test the API at http://localhost:4000/api/projects
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">Deployment</h2>
+                <p>Production builds run <code>npm run build</code> in <code>/frontend</code> and <code>/backend</code>. Lint the UI with <code>npm run lint</code> in <code>/frontend</code> and confirm both dev servers start cleanly before deploying to Vercel/Render.</p>
+                <p>Consult <a href="./AGENTS.md">AGENTS.md</a> for coding style, testing guidelines, and PR formatting standards.</p>
+            </section>
+
+            <footer>Full-stack portfolio built with Next.js 14, Express, and TypeScript. Deployed via Vercel (frontend) and Render (backend).</footer>
+        </main>
+    </body>
+</html>

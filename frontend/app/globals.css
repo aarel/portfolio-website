@@ -1,0 +1,49 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+    --background: #020617;
+    --foreground: #f8fafc;
+    --primary: #38bdf8;
+    --accent: #a855f7;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", system-ui, sans-serif;
+    background-color: var(--background);
+    background-image:
+        radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.12), transparent 55%),
+        radial-gradient(circle at 80% 0%, rgba(168, 85, 247, 0.14), transparent 45%),
+        linear-gradient(180deg, rgba(15, 23, 42, 0.95), rgba(2, 6, 23, 1));
+    background-attachment: fixed;
+    color: var(--foreground);
+    line-height: 1.65;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 4px;
+}
+
+::selection {
+    background-color: rgba(56, 189, 248, 0.3);
+    color: var(--foreground);
+}

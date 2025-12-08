@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "title": "Role Model Framework",
+        "slug": "role-model-framework",
+        "description": "Modular AI role architecture for reliable contained behavior.",
+        "tech": ["Python", "Flask", "MySQL", "OpenAI API"],
+        "link": "https://github.com/aarel/role-model",
+        "active": true
+    },
+    {
+        "id": 2,
+        "title": "Portfolio Website",
+        "slug": "portfolio-website",
+        "description": "Website to showcase my projects and blog posts.",
+        "tech": ["Node.js", "Next.js", "OpenAI API"],
+        "link": "https://github.com/aarel/portfolio-website",
+        "active": true
+    },
+    {
+        "id": 3,
+        "title": "Red v. Blue",
+        "slug": "red-v-blue",
+        "description": "Educational cybersecurity red team/ blue team action.",
+        "tech": ["Python", "Open AI"],
+        "link": "https://github.com/aarel/red-v-blue",
+        "active": true
+    }
+]
