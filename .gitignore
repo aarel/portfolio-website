@@ -17,3 +17,7 @@ agents/
 CLAUDE.md
 AGENTS.md
 GEMINI.md
+
+# Package Libraries
+package.json
+package-lock.json

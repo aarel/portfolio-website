@@ -1,0 +1,18 @@
+[
+    {
+        "id": "1",
+        "title": "Building the Role Model Framework",
+        "slug": "role-model-framework",
+        "date": "2025-09-01",
+        "excerpt": "A modular approach to AI behavior control.",
+        "content": "The Role Model Framework defines structured AI behaviors through modular roles, enabling predictable, safe, and isolated LLM operations."
+    },
+    {
+        "id": "2",
+        "title": "From Infrastructure to Intelligence",
+        "slug": "infra-to-intelligence",
+        "date": "2025-09-15",
+        "excerpt": "How infrastructure engineers can move into AI systems work.",
+        "content": "Transitioning from DevOps to AI systems means understanding data flow, model interfaces, and modular runtime design."
+    }
+]
